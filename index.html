@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <title>Sovler</title>
+  </head>
+
+  <body>
+    <div class="pageContainer">
+      <div class="UIContainer">
+        <div class="letterContainer">
+          <input type="text" id='box1' class='letterBox' maxlength="1"/>
+          <input type="text" id='box2' class='letterBox' maxlength="1"/>
+          <input type="text" id='box3' class='letterBox' maxlength="1"/>
+          <input type="text" id='box4' class='letterBox' maxlength="1"/>
+          <input type="text" id='box5' class='letterBox' maxlength="1"/>
+          <input type="text" id='box6' class='letterBox' maxlength="1"/>
+          <input type="text" id='box7' class='letterBox main' maxlength="1"/>
+        </div>
+        <input type="submit" value="Solve" id='solveButton'/>
+
+        <div class="resultContainer">
+          <h1>Possible solutions:</h1>
+          <p id="results"></p>
+        </div>
+      </div>
+    </div>
+  </body>
+  
+  <script>
+    document.querySelectorAll('.letterBox').forEach((box) => {
+      box.addEventListener('keyup', (e) => {
+        const thisIDNum = e.target.id.slice(-1)
+
+        let nextBox = document.querySelector(`#box${parseInt(thisIDNum) + 1}`)
+        console.log(e.keyCode)
+        if (e.keyCode == 8) {
+          nextBox = document.querySelector(`#box${parseInt(thisIDNum) - 1}`)
+        }
+
+        nextBox.value = ''
+        nextBox.focus()
+      })
+    })
+
+    document.querySelector('#solveButton').addEventListener('click', (e) => {
+      let letters = ''
+      document.querySelectorAll('.letterBox').forEach((box) => {
+        letters += box.value
+      })
+      
+      const results = solve(letters, document.querySelector('.main').value)
+      document.querySelector('#results').innerHTML = ''
+      for (result of results) {
+        document.querySelector('#results').innerHTML += result
+        document.querySelector('#results').innerHTML += "<br />"
+      }
+      window.setTimeout(() => {
+        document.querySelector('.resultContainer').classList.add('active')
+      }, 400)
+      document.querySelector('.pageContainer').classList.add('active')
+    })
+  </script>
+  <script type="text/javascript" src="wordlist.js"></script>
+  <script type="text/javascript" src="solver.js"></script>
+</html>
