@@ -86,7 +86,7 @@ const solve = (letters, mainLetter) => {
      */
     const allWords = generateWords(letters);
     const matchingWords = checkWords(allWords, mainLetter);
-    const sortedMatchingWords = matchingWords.sort((a, b) => a.length - b.length);
+    const sortedMatchingWords = matchingWords.sort((a, b) => b.length - a.length);
 
     let validWords = []
     for (const word of sortedMatchingWords) {
