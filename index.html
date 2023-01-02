@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="mainstyle.css">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
-    <title>Sovler</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <title>Spelling Bee Solver</title>
   </head>
 
   <body>
+    <header>
+      <a class="headerLink active" href="index.html">Spelling Bee</a>
+      <a class="headerLink" href="letterboxed/index.html">Letterboxed</a>
+    </header>
+
     <div class="pageContainer">
       <div class="UIContainer">
         <div class="letterContainer">
@@ -35,7 +41,6 @@
         const thisIDNum = e.target.id.slice(-1)
 
         let nextBox = document.querySelector(`#box${parseInt(thisIDNum) + 1}`)
-        console.log(e.keyCode)
         if (e.keyCode == 8) {
           nextBox = document.querySelector(`#box${parseInt(thisIDNum) - 1}`)
         }
@@ -57,12 +62,10 @@
         document.querySelector('#results').innerHTML += result
         document.querySelector('#results').innerHTML += "<br />"
       }
-      window.setTimeout(() => {
-        document.querySelector('.resultContainer').classList.add('active')
-      }, 400)
+      document.querySelector('.resultContainer').classList.add('active')
       document.querySelector('.pageContainer').classList.add('active')
     })
   </script>
   <script type="text/javascript" src="wordlist.js"></script>
-  <script type="text/javascript" src="solver.js"></script>
+  <script type="text/javascript" src="main.js"></script>
 </html>

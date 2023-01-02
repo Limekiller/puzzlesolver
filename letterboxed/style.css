@@ -1,0 +1,60 @@
+.pageContainer {
+    margin-top: 10rem;
+}
+
+input[type="text"] {
+    width: 5rem;
+    height: 5rem;
+    background: #F0F0F4;
+    border-radius: 1rem;
+    border: none;
+    text-align: center;
+    font-family: 'Poppins', 'sans-serif';
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.letterbox {
+    display: grid;
+    grid-template-columns: repeat(5, 5rem);
+    grid-gap: 0.5rem;
+}
+
+.controls {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.resultContainer {
+    margin-top: 2rem;
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+    font-size: 2rem;
+    font-weight: 600;
+    line-break: anywhere;
+}
+
+.resultContainer.active {
+    opacity: 1;
+}
+
+#solveButton {
+    padding: 1rem;
+    background: rgb(186, 255, 186);
+    border: none;
+    border-radius: 1rem;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+#efficiency {
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid grey;
+    width: 3rem;
+    margin: 0rem 1rem;
+}
+
+.puzzleContainer {
+    width: min-content;
+}

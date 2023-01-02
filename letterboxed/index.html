@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../mainstyle.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <title>Letterboxed Solver</title>
+  </head>
+
+  <body>
+    <header>
+      <a class="headerLink" href="../index.html">Spelling Bee</a>
+      <a class="headerLink active" href="index.html">Letterboxed</a>
+    </header>
+    
+    <div class="pageContainer">
+      <div class="puzzleContainer">
+        <div class="letterbox">
+          <div class="spacer"></div>
+          <input type="text" maxlength="1" id='box1' class='group1 letter'/>
+          <input type="text" maxlength="1" id='box2' class='group1 letter'/>
+          <input type="text" maxlength="1" id='box3' class='group1 letter'/>
+          <div class="spacer"></div>
+
+          <input type="text" maxlength="1" id='box12' class='group4 letter'/>
+          <div class="spacer"></div>
+          <div class="spacer"></div>
+          <div class="spacer"></div>
+          <input type="text" maxlength="1" id='box4' class='group2 letter'/>
+
+          <input type="text" maxlength="1" id='box11' class='group4 letter'/>
+          <div class="spacer"></div>
+          <div class="spacer"></div>
+          <div class="spacer"></div>
+          <input type="text" maxlength="1" id='box5' class='group2 letter'/>
+
+          <input type="text" maxlength="1" id='box10' class='group4 letter'/>
+          <div class="spacer"></div>
+          <div class="spacer"></div>
+          <div class="spacer"></div>
+          <input type="text" maxlength="1" id='box6' class='group2 letter'/>
+
+          <div class="spacer"></div>
+          <input type="text" maxlength="1" id='box9' class='group3 letter'/>
+          <input type="text" maxlength="1" id='box8' class='group3 letter'/>
+          <input type="text" maxlength="1" id='box7' class='group3 letter'/>
+          <div class="spacer"></div>
+        </div>
+
+        <div class='controls'>
+          <span>Attempt to find a solution in <input type="number" id="efficiency" value=2 /> words</span>
+          <input type='submit' value="Solve" id='solveButton'/>
+        </div>
+
+        <div class="resultContainer"></div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    document.querySelectorAll('.letter').forEach((box) => {
+      box.addEventListener('keyup', (e) => {
+        const thisIDNum = e.target.id.slice(3)
+
+        let nextBox = document.querySelector(`#box${parseInt(thisIDNum) + 1}`)
+        if (e.keyCode == 8) {
+          nextBox = document.querySelector(`#box${parseInt(thisIDNum) - 1}`)
+        }
+
+        nextBox.value = ''
+        nextBox.focus()
+      })
+    })
+
+    document.querySelector('#solveButton').addEventListener('click', () => {
+      solve()
+    })
+
+    const buildBoxData = () => {
+      let boxData = {}
+      for (let i = 1; i < 13; i++) {
+        const currLetter = document.querySelector(`#box${i}`)
+        const group = currLetter.classList[0]
+        let possibleConnections = []
+        document.querySelectorAll('.letter').forEach(letter => {
+          if (letter.classList[0] !== group) {
+            possibleConnections.push(letter.value)
+          }
+        })
+        boxData[currLetter.value] = possibleConnections
+      }
+      
+      return boxData
+    }
+
+    const solve = async () => {
+      let boxData = buildBoxData()
+      for (let i = 1; i < 13; i++) {
+        const letter = document.querySelector(`#box${i}`)
+        const solution = await generateWords(letter.value, boxData, document.querySelector('#efficiency').value)
+        if (solution.length > 0) {
+          document.querySelector('.pageContainer').classList.add('active')
+          document.querySelector('.resultContainer').classList.add('active')
+          document.querySelector('.resultContainer').innerHTML = ''
+          for (word of solution) {
+            document.querySelector('.resultContainer').innerHTML += word
+            if (word != solution.slice(-1)) {
+              document.querySelector('.resultContainer').innerHTML += "⸻" 
+            }
+          }
+          return solution
+        }
+      }
+    }
+  </script>
+
+  <script src="main.js"></script>
+  <script src="wordlist.js"></script>
+</html>
