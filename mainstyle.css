@@ -8,7 +8,14 @@ header {
     top: 2rem;
     left: 1rem;
     z-index: 9;
-    position: relative;
+}
+
+.title {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    font-weight: 600;
+    font-size: 1.5rem;
 }
 
 .headerLink {
@@ -35,5 +42,28 @@ header {
 }
 
 .pageContainer.active {
-    margin-top: 0;
+    margin-top: 1rem;
+}
+
+#solveButton {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgb(186, 255, 186);
+    border: none;
+    border-radius: 1rem;
+    width: 100%;
+}
+
+input, button, .headerLink {
+    transition: filter 0.2s ease;
+}
+
+input:hover, button:hover, .headerLink:hover {
+    filter: brightness(0.9);
+}
+
+@media screen and (max-width: 750px) {
+    html {
+        font-size: 10px;
+    }
 }

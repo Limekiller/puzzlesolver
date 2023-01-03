@@ -31,20 +31,10 @@ input[type="text"] {
     transition: opacity 0.4s cubic-bezier(0.76, 0, 0.24, 1);
     font-size: 2rem;
     font-weight: 600;
-    line-break: anywhere;
 }
 
 .resultContainer.active {
     opacity: 1;
-}
-
-#solveButton {
-    padding: 1rem;
-    background: rgb(186, 255, 186);
-    border: none;
-    border-radius: 1rem;
-    width: 100%;
-    margin-top: 1rem;
 }
 
 #efficiency {

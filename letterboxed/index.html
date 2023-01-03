@@ -5,7 +5,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-    <title>Letterboxed Solver</title>
+     
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letterboxed Solver | New York Times Puzzle Solvers</title>
   </head>
 
   <body>
@@ -13,6 +15,7 @@
       <a class="headerLink" href="../index.html">Spelling Bee</a>
       <a class="headerLink active" href="index.html">Letterboxed</a>
     </header>
+    <span class="title">Puzzle Solver</span>
     
     <div class="pageContainer">
       <div class="puzzleContainer">
@@ -106,7 +109,7 @@
           for (word of solution) {
             document.querySelector('.resultContainer').innerHTML += word
             if (word != solution.slice(-1)) {
-              document.querySelector('.resultContainer').innerHTML += "⸻" 
+              document.querySelector('.resultContainer').innerHTML += " ⸻ " 
             }
           }
           return solution
