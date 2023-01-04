@@ -3,6 +3,10 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+::selection {
+    background: #ffd924;
+}
+
 header {
     position: fixed;
     top: 2rem;

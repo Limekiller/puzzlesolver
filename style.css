@@ -21,7 +21,26 @@
 .resultContainer {
     opacity: 0;
     transition: opacity 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+    text-align: center;
 }
 .resultContainer.active {
     opacity: 1;
+}
+
+@media screen and (max-width: 750px) {
+    .pageContainer {
+        margin-top: 30vh;
+    }
+
+    .pageContainer.active {
+        margin-top: 10vh;
+    }
+
+    .letterContainer {
+        display: flex;
+        flex-wrap: wrap;
+        width: 20rem;
+        gap: 1rem;
+        justify-content: center;
+    }
 }

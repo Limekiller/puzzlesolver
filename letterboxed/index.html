@@ -8,13 +8,13 @@
      
     <meta name="description" content="New York Times Letter Boxed puzzle solver | Get the answer to today's Letter Boxed puzzle">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Letterboxed Solver | New York Times Puzzle Solvers</title>
+    <title>Letter Boxed Solver | New York Times Puzzle Solvers</title>
   </head>
 
   <body>
     <header>
       <a class="headerLink" href="../index.html">Spelling Bee</a>
-      <a class="headerLink active" href="index.html">Letterboxed</a>
+      <a class="headerLink active" href="index.html">Letter Boxed</a>
     </header>
     <span class="title">Puzzle Solver</span>
     
@@ -72,8 +72,11 @@
           nextBox = document.querySelector(`#box${parseInt(thisIDNum) - 1}`)
         }
 
-        nextBox.value = ''
+        nextBox.select()
         nextBox.focus()
+      })
+      box.addEventListener('click', e => {
+        e.target.select()
       })
     })
 
@@ -116,6 +119,7 @@
           return solution
         }
       }
+      alert("No solutions found!")
     }
   </script>
 

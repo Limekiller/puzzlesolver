@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <link rel="stylesheet" href="mainstyle.css">
     <link rel="stylesheet" href="style.css">
@@ -14,7 +14,7 @@
   <body>
     <header>
       <a class="headerLink active" href="index.html">Spelling Bee</a>
-      <a class="headerLink" href="letterboxed/index.html">Letterboxed</a>
+      <a class="headerLink" href="letterboxed/index.html">Letter Boxed</a>
     </header>
     <span class="title">Puzzle Solver</span>
 
@@ -49,8 +49,11 @@
           nextBox = document.querySelector(`#box${parseInt(thisIDNum) - 1}`)
         }
 
-        nextBox.value = ''
+        nextBox.select()
         nextBox.focus()
+      })
+      box.addEventListener('click', (e) => {
+        e.target.select()
       })
     })
 
