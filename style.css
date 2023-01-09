@@ -1,5 +1,6 @@
 .UIContainer {
     overflow: auto;
+    padding: 1rem 1rem;
 }
 
 .letterBox {
@@ -22,12 +23,18 @@
     opacity: 0;
     transition: opacity 0.4s cubic-bezier(0.76, 0, 0.24, 1);
     text-align: center;
+    display: flex;
+    justify-content: space-around;
 }
 .resultContainer.active {
     opacity: 1;
 }
 
 @media screen and (max-width: 750px) {
+    .UIContainer {
+        justify-content: space-between;
+    }
+
     .pageContainer {
         margin-top: 30vh;
     }
