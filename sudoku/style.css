@@ -1,0 +1,50 @@
+.pageContainer {
+    margin-top: 15vh;
+}
+
+input[type='number'] {
+    background: #F0F0F4;
+    border: none;
+    appearance: textfield;
+    width: 4rem;
+    height: 4rem;
+    border: 1px solid white;
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: color 0.4s ease, filter 0.2s ease;
+    color: black;
+}
+input[type='number'].solved {
+    color: #aaa;
+}
+input[type='number'].inactive {
+    color: rgba(0, 0, 0, 0);
+}
+
+
+.puzzle {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 0.25rem;
+}
+
+.ninesquare {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    border-radius: 1rem;
+}
+
+#square1 {
+    border-top-left-radius: 2rem;
+}
+#square9 {
+    border-top-right-radius: 2rem;
+}
+#square73 {
+    border-bottom-left-radius: 2rem;
+}
+#square81 {
+    border-bottom-right-radius: 2rem;
+}
