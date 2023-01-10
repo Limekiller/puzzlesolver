@@ -64,7 +64,9 @@ const check = (puzzle) => {
 }
 
 const checkRowPossible = (row) => {
-    // No duplicates in row. We assume that values are between 1 and 9
+    // After removing nulls, make sure there are no duplicates in row. 
+    // We assume that values are between 1 and 9
+    row = row.filter(i => i !== null)
     return new Set(row).size === row.length
 }
 
@@ -96,35 +98,39 @@ const generateCombinations = (length, currString = "", combos = []) => {
 }
 
 const findSolution = (puzzle) => {
-    if (check(puzzle)) {
-        return puzzle
-    }
-
     for (let row in puzzle) {
         for (let num in puzzle[row]) {
             if (puzzle[row][num] === null) {
-                for (let i = 0; i <= 8; i++) {
+                for (let i = 1; i <= 9; i++) {
                     puzzle[row][num] = i
 
-                    if (!checkRowPossible(puzzle[row]) || !checkColPossible(row)) {
+                    if (!checkRowPossible(puzzle[row]) || !checkColPossible(num, puzzle)) {
                         continue
                     }
 
                     findSolution(puzzle)
+
+                    if (check(puzzle)) {
+                        return puzzle
+                    }
                 }
+                puzzle[row][num] = null
+                return
             }
         }
     }
+
+    return puzzle
 }
 
 const puzzle = [
-    [null, null, null, null, null, null, 2, null, null],
-    [null, 8, null, null, null, 7, null, 9, null],
-    [6, null, 2, null, null, null, 5, null, null],
-    [null, 7, null, null, 6, null, null, null, null],
-    [null, null, null, 9, null, 1, null, null, null],
-    [null, null, null, null, 2, null, null, 4, null],
-    [null, null, 5, null, null, null, 6, null, 3],
-    [null, 9, null, 4, null, null, null, 7, null],
-    [null, null, 6, null, null, null, null, null, null]
+    [8, 9, null, 4, 5, null, null, null, null],
+    [null, null, 1, 3, null, null, null, null, null],
+    [null, null, null, 9, 7, null, 2, 6, 8],
+    [null, 8, 3, 7, 4, null, null, null, 9],
+    [2, null, 7, 6, null, null, 4, 8, null],
+    [null, 6, null, 8, null, 3, null, null, 7],
+    [null, 7, null, null, 8, 4, null, 9, 6],
+    [5, 4, null, null, 9, null, 7, null, null],
+    [6, null, null, null, null, 7, 8, null, 4]
 ]
