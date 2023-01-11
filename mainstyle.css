@@ -56,6 +56,7 @@ header.hidden {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    width: fit-content;
 }
 .title.menuToggle img {
     height: 1.5rem;

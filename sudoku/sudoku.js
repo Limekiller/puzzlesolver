@@ -150,7 +150,11 @@ const checkBoxPossible = (colNum, rowNum, puzzle) => {
  * @param puzzle array: A 2D array representing the puzzle state
  * @return array: The solved puzzle state
  */
-const findSolution = (puzzle) => {
+const findSolution = (puzzle, starttime = new Date().getTime()) => {
+    if ((new Date().getTime() - starttime) > 15000) {
+        return
+    }
+
     // We iterate through every blank square in the puzzle and try every possible value from 1-9
     for (let row in puzzle) {
         for (let num in puzzle[row]) {
@@ -164,7 +168,7 @@ const findSolution = (puzzle) => {
                     }
 
                     // If so, call recursively to go to the next square
-                    findSolution(puzzle)
+                    findSolution(puzzle, starttime)
 
                     // If we get here, the puzzle is either solved or we hit a dead-end
                     // Check for the former, but if it's the latter, we go around again and try the next number in sequence
