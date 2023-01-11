@@ -183,15 +183,3 @@ const findSolution = (puzzle) => {
 
     return puzzle
 }
-
-const puzzle = [
-    [null, null, 4, 9, null, null, null, 6, 1],
-    [2, null, 6, null, null, null, null, null, null],
-    [1, null, null, 3, 6, null, null, 2, null],
-    [null, 3, 7, null, null, null, null, null, 4],
-    [null, null, null, 1, null, null, 6, null, null],
-    [null, 1, null, null, 4, null, 3, null, 5],
-    [7, 4, null, null, 3, null, null, null, null],
-    [null, null, null, null, 1, 5, null, null, 9],
-    [null, null, null, null, null, 2, null, 4, null],
-]
