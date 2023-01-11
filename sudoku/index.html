@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/mainstyle.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+     
+    <meta name="description" content="Free online sudoku solver">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Solver | Solve sudoku free online</title>
+  </head>
+
+  <body>
+    <button class="title menuToggle"><img src='/images/puzzle.svg' />Puzzle Menu</button>
+    <header>
+      <a class="headerLink " href="/index.html"><img src='/images/spellingbee.svg'/><span>Spelling Bee</span></a>
+      <a class="headerLink " href="/letterboxed/index.html"><img src='/images/letterboxed.svg'/><span>Letter Boxed</span></a>
+      <a class="headerLink active" href="/sudoku/index.html"><img src='/images/sudoku.svg'/><span>Sudoku</span></a>
+    </header>
+    <span class="title">Puzzle Solver</span>
+    
+    <div class="pageContainer">
+      <div class="puzzleContainer">
+
+        <div class="puzzle">
+          <div class="ninesquare">
+            <input type="number" id="square1"></input>
+            <input type="number" id="square2"></input>
+            <input type="number" id="square3"></input>
+            <input type="number" id="square10"></input>
+            <input type="number" id="square11"></input>
+            <input type="number" id="square12"></input>
+            <input type="number" id="square19"></input>
+            <input type="number" id="square20"></input>
+            <input type="number" id="square21"></input>
+          </div>
+
+          <div class="ninesquare">
+            <input type="number" id="square4"></input>
+            <input type="number" id="square5"></input>
+            <input type="number" id="square6"></input>
+            <input type="number" id="square13"></input>
+            <input type="number" id="square14"></input>
+            <input type="number" id="square15"></input>
+            <input type="number" id="square22"></input>
+            <input type="number" id="square23"></input>
+            <input type="number" id="square24"></input>
+          </div>
+
+          <div class="ninesquare">
+            <input type="number" id="square7"></input>
+            <input type="number" id="square8"></input>
+            <input type="number" id="square9"></input>
+            <input type="number" id="square16"></input>
+            <input type="number" id="square17"></input>
+            <input type="number" id="square18"></input>
+            <input type="number" id="square25"></input>
+            <input type="number" id="square26"></input>
+            <input type="number" id="square27"></input>
+          </div>
+
+          <div class="ninesquare">
+            <input type="number" id="square28"></input>
+            <input type="number" id="square29"></input>
+            <input type="number" id="square30"></input>
+            <input type="number" id="square37"></input>
+            <input type="number" id="square38"></input>
+            <input type="number" id="square39"></input>
+            <input type="number" id="square46"></input>
+            <input type="number" id="square47"></input>
+            <input type="number" id="square48"></input>
+          </div>
+
+          <div class="ninesquare">
+            <input type="number" id="square31"></input>
+            <input type="number" id="square32"></input>
+            <input type="number" id="square33"></input>
+            <input type="number" id="square40"></input>
+            <input type="number" id="square41"></input>
+            <input type="number" id="square42"></input>
+            <input type="number" id="square49"></input>
+            <input type="number" id="square50"></input>
+            <input type="number" id="square51"></input>
+          </div>
+
+          <div class="ninesquare">
+            <input type="number" id="square34"></input>
+            <input type="number" id="square35"></input>
+            <input type="number" id="square36"></input>
+            <input type="number" id="square43"></input>
+            <input type="number" id="square44"></input>
+            <input type="number" id="square45"></input>
+            <input type="number" id="square52"></input>
+            <input type="number" id="square53"></input>
+            <input type="number" id="square54"></input>
+          </div>
+
+          <div class="ninesquare">
+            <input type="number" id="square55"></input>
+            <input type="number" id="square56"></input>
+            <input type="number" id="square57"></input>
+            <input type="number" id="square64"></input>
+            <input type="number" id="square65"></input>
+            <input type="number" id="square66"></input>
+            <input type="number" id="square73"></input>
+            <input type="number" id="square74"></input>
+            <input type="number" id="square75"></input>
+          </div>
+
+          <div class="ninesquare">
+            <input type="number" id="square58"></input>
+            <input type="number" id="square59"></input>
+            <input type="number" id="square60"></input>
+            <input type="number" id="square67"></input>
+            <input type="number" id="square68"></input>
+            <input type="number" id="square69"></input>
+            <input type="number" id="square76"></input>
+            <input type="number" id="square77"></input>
+            <input type="number" id="square78"></input>
+          </div>
+
+          <div class="ninesquare">
+            <input type="number" id="square61"></input>
+            <input type="number" id="square62"></input>
+            <input type="number" id="square63"></input>
+            <input type="number" id="square70"></input>
+            <input type="number" id="square71"></input>
+            <input type="number" id="square72"></input>
+            <input type="number" id="square79"></input>
+            <input type="number" id="square80"></input>
+            <input type="number" id="square81"></input>
+          </div>
+        </div>
+
+        <input type="submit" value="Solve" id="solveButton"/>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const buildPuzzle = () => {
+      let puzzle = []
+      let currRow = -1
+      for (let i = 0; i <= 80; i++) {
+        if (i % 9 == 0) {
+          currRow += 1
+          puzzle.push([])
+        }
+
+        const squareElem = document.querySelector(`#square${i + 1}`)
+        if (squareElem.value) {
+          puzzle[currRow].push(parseInt(squareElem.value))
+          squareElem.classList.add('solved')
+        } else {
+          puzzle[currRow].push(null)
+          squareElem.classList.add('inactive')
+        }
+      }
+
+      return puzzle
+    }
+
+    const solve = () => {
+      const puzzle = buildPuzzle()
+      const solvedPuzzle = findSolution(puzzle)
+
+      window.setTimeout(() => {
+        document.querySelector("#solveButton").value = "Solve"
+
+        if (!solvedPuzzle) {
+          document.querySelectorAll('input[type="number"]').forEach(elem => elem.classList.remove('solved'))
+          document.querySelectorAll('input[type="number"]').forEach(elem => elem.classList.remove('inactive'))
+          alert("No solutions found!")
+          return
+        }
+
+        let currSquare = 0
+        for (let row of solvedPuzzle) {
+          for (let square of row) {
+            const squareElem = document.querySelector(`#square${currSquare + 1}`)
+            squareElem.value = square
+            squareElem.classList.remove('inactive')
+            currSquare += 1
+          }
+        }
+      }, 250)
+    }
+
+    document.querySelector("#solveButton").addEventListener('click', (e) => {
+      e.target.value = "Thinking..."
+      window.setTimeout(solve, 100)
+    })
+  </script>
+  <script src="sudoku.js"></script>
+  <script src="/main.js"></script>
+</html>
