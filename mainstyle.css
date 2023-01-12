@@ -17,7 +17,7 @@ header {
     width: 18rem;
     z-index: 9;
     left: 0;
-    transition: left 0.4s cubic-bezier(0, 0.55, 0.45, 1);
+    transition: left 0.4s cubic-bezier(0.87, 0, 0.13, 1);
     background: white;
     pointer-events: none;
 }
