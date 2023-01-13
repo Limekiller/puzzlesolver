@@ -193,9 +193,10 @@
     })
 
     document.querySelectorAll("input[type='number']").forEach(element => element.addEventListener('keyup', (e) => {
-      console.log(!isNaN(e.target.value))
-      e.target.value = !isNaN(e.target.value) ? e.target.value : 1
-      e.target.value = Math.min(Math.max(e.target.value, 1), 9)
+      if (e.keyCode !== 8) {
+        e.target.value = !isNaN(e.target.value) ? e.target.value : 1
+        e.target.value = Math.min(Math.max(e.target.value, 1), 9)
+      }
     }))
   </script>
   <script src="sudoku.js"></script>
