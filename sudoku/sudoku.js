@@ -1,5 +1,21 @@
 // Sudoku solver
 
+const checkPuzzle = (puzzle) => {
+    for (let row in puzzle) {
+        for (let column in puzzle[row]) {
+            if (puzzle[row][column] !== null) {
+                const value = puzzle[row][column]
+                puzzle[row][column] = null
+                if (!check(row, column, value, puzzle)) {
+                    return false
+                }
+                puzzle[row][column] = value
+            }
+        }
+    }
+    return true
+}
+
 /**
  * Check if a given puzzle is valid
  * @param puzzle array: The puzzle to check

@@ -163,6 +163,10 @@
 
     const solve = () => {
       const puzzle = buildPuzzle()
+      if (!checkPuzzle(puzzle)) {
+        alert("Puzzle isn't valid!")
+        return
+      }
       const solvedPuzzle = findSolution(puzzle)
 
       window.setTimeout(() => {

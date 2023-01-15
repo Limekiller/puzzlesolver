@@ -44,16 +44,21 @@
   <script>
     document.querySelectorAll('.letterBox').forEach((box) => {
       box.addEventListener('keyup', (e) => {
+        const alpha = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
         const thisIDNum = e.target.id.slice(-1)
+        e.target.value = e.target.value.toLowerCase()
 
-        let nextBox = document.querySelector(`#box${parseInt(thisIDNum) + 1}`)
-        if (e.keyCode == 8) {
-          nextBox = document.querySelector(`#box${parseInt(thisIDNum) - 1}`)
+        if (alpha.includes(e.key) || e.key === 'Backspace') {
+          let nextBox = document.querySelector(`#box${parseInt(thisIDNum) + 1}`)
+          if (e.key === 'Backspace') {
+            nextBox = document.querySelector(`#box${parseInt(thisIDNum) - 1}`)
+          }
+
+          nextBox.select()
+          nextBox.focus()
         }
-
-        nextBox.select()
-        nextBox.focus()
       })
+
       box.addEventListener('click', (e) => {
         e.target.select()
       })
