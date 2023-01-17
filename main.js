@@ -4,3 +4,7 @@ document.querySelector('header').addEventListener('click', (e) => {
 document.querySelector('.menuToggle').addEventListener('click', (e) => {
     document.querySelector('header').classList.remove('hidden')
 })
+
+if (window.innerWidth < 750) {
+    document.querySelector('header').classList.add('hidden')
+}

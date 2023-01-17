@@ -53,4 +53,8 @@
         gap: 1rem;
         justify-content: center;
     }
+
+    .resultContainer {
+        max-height: 25rem;
+    }
 }
