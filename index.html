@@ -12,12 +12,8 @@
   </head>
 
   <body>
-    <button class="title menuToggle"><img src='/images/puzzle.svg' />Puzzle Menu</button>
-    <header>
-      <a class="headerLink active" href="/"><img src='/images/spellingbee.svg'/><span>Spelling Bee</span></a>
-      <a class="headerLink " href="/letterboxed"><img src='/images/letterboxed.svg'/><span>Letter Boxed</span></a>
-      <a class="headerLink " href="/sudoku"><img src='/images/sudoku.svg'/><span>Sudoku</span></a>
-    </header>
+    <div id="header"></div>
+
     <span class="title">Puzzle Solver</span>
 
     <div class="pageContainer">
@@ -39,6 +35,8 @@
         </div>
       </div>
     </div>
+
+    <div id="footer"></div>
   </body>
   
   <script>
@@ -82,7 +80,15 @@
       document.querySelector('.pageContainer').classList.add('active')
     })
   </script>
+
+  <!-- game logic -->
   <script type="text/javascript" src="wordlist.js"></script>
   <script type="text/javascript" src="spellingbee.js"></script>
-  <script src="../main.js"></script>
+
+  <!-- react -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="/components/header.js"></script>
+  <script src="/components/footer.js"></script>
+
 </html>

@@ -12,12 +12,7 @@
   </head>
 
   <body>
-    <button class="title menuToggle"><img src='/images/puzzle.svg' />Puzzle Menu</button>
-    <header>
-      <a class="headerLink " href="/"><img src='/images/spellingbee.svg'/><span>Spelling Bee</span></a>
-      <a class="headerLink active" href="/letterboxed"><img src='/images/letterboxed.svg'/><span>Letter Boxed</span></a>
-      <a class="headerLink " href="/sudoku"><img src='/images/sudoku.svg'/><span>Sudoku</span></a>
-    </header>
+    <dev id="header"></dev>
     <span class="title">Puzzle Solver</span>
     
     <div class="pageContainer">
@@ -62,6 +57,8 @@
         <div class="resultContainer"></div>
       </div>
     </div>
+
+    <div id="footer"></div>
   </body>
 
   <script>
@@ -130,5 +127,11 @@
 
   <script src="wordlist.js"></script>
   <script src="letterboxed.js"></script>
-  <script src="/main.js"></script>
+  
+  <!-- react -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="/components/header.js"></script>
+  <script src="/components/footer.js"></script>
+
 </html>

@@ -37,6 +37,24 @@ header.hidden {
     left: -18rem;
 }
 
+footer {
+    display: flex;
+    height: 2rem;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    justify-content: end;
+    padding: 1rem;
+    gap: 1rem;
+}
+footer img {
+    height: 2rem;
+}
+footer img:hover {
+    filter: invert(0.5) sepia(0.5) saturate(9) hue-rotate(340deg) brightness(1.75);
+}
+
 .title {
     position: fixed;
     top: 1rem;
