@@ -19,22 +19,22 @@ header {
     left: 0;
     transition: left 0.4s cubic-bezier(0.87, 0, 0.13, 1);
     background: white;
-    pointer-events: none;
 }
 header::before {
     content: "Puzzles";
     font-weight: 600;
     margin: 0 0 1rem 1rem;
 }
-header::after {
-    content: "✖";
+header.hidden {
+    left: -18rem;
+}
+.closeButton {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    pointer-events: all;
-}
-header.hidden {
-    left: -18rem;
+    border-radius: 100rem;
+    border: none;
+    padding: 0.25rem 0.5rem;
 }
 
 footer {

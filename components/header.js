@@ -32,7 +32,8 @@ const header = (props) => {
         ),
         e(
             'header',
-            { onClick: () => sethidden(!hidden), className: hidden ? 'hidden' : ''},
+            {className: hidden ? 'hidden' : ''},
+            e('button', {onClick: () => sethidden(!hidden), className: 'closeButton'}, '✖'),
             pages.map(page => {
                 return e(
                     'a',
